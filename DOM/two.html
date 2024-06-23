@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Second Prac</title>
+</head>
+<body style="background-color: black; color: white;">
+    <div class="parent">
+        <!-- a sample comment to understand childnodes -->
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    const parent = document.querySelector('.parent')
+    console.log(parent);
+    console.log(parent.children[1].innerHTML);
+    for (let i = 0; i < parent.children.length; i++) {
+        console.log(parent.children[i].innerHTML)  
+    }
+
+    parent.children[1].style.color="green"
+
+    const childOne = document.querySelector('.day')
+    console.log(childOne);
+    console.log(childOne.innerHTML);
+    console.log(childOne.parentElement);
+    console.log(childOne.nextElementSibling);
+
+    
+    console.log("NODES:", parent.childNodes); // displays complex tree structure of how js is processed
+    // inclues each line break, comments etc.
+</script>
+</html>
