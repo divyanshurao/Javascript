@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice Four</title>
+</head>
+<body style="background-color: black; color: antiquewhite;">
+    <ul class="languages">
+        <li>Javascript</li>
+    </ul>
+</body>
+<script>
+    
+    const listItem = document.createElement('li');
+    listItem.innerHTML = 'C++'
+    document.body.querySelector('.languages').append(listItem);
+
+    // Do this through fuction
+
+    function addLanguage(langName){
+       const item = document.createElement('li');
+       item.innerHTML=`${langName}`; // this is complex in terms of time for execution
+       document.querySelector('.languages').appendChild(item);
+    }
+    addLanguage("python")
+    addLanguage("typescript")
+    // Here every time the entire tree is traversed to add the language text
+
+    //Hence an optimized way can be below
+    function optimisedAddLanguage(langName){
+       const item = document.createElement('li');
+       item.appendChild(document.createTextNode(langName)); // less traversal req.
+       document.querySelector('.languages').appendChild(item);
+    }
+
+    //Edit
+    const secondLang = document.querySelector("li:nth-child(2)");
+    console.log(secondLang.innerHTML);
+
+    secondLang.innerHTML = "C#";
+    console.log(secondLang.innerHTML);
+
+    //Optimised approach to edit(Create new li and replace)
+    const newText = document.createElement('li');
+    newText.textContent = "C##"
+    secondLang.replaceWith(newText);
+
+    //Edit
+    const lastLang = document.querySelector('li:last-child');
+    lastLang.outerHTML = '<li>TS</li>'
+
+    //Remove
+    // const remLast = document.querySelector('li:last-child');
+    // remLast.remove();
+</script>
+</html>
