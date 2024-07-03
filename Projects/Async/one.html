@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="heading">Async</h1>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+    const print = function(){
+        console.log("Print Text")
+    }
+
+    setTimeout(() => {
+        console.log("Print Text 1") 
+    }, 2000);
+
+    setTimeout(print, 2000);
+
+    const changeH1 = function(){
+            document.getElementById('heading').innerHTML = "Play with Async";
+    }
+    const clearMe = setTimeout(changeH1, 3000);
+
+    // Way to discard any setTimeout
+    document.getElementById('stop').addEventListener('click',()=>{
+        clearTimeout(clearMe);
+        console.log('Stopped');
+    })
+</script>
+</html>
