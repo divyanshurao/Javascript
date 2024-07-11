@@ -9,11 +9,14 @@ function randomColour(){
 let setBackgroundEvent;
 
 document.getElementById('start').addEventListener('click',()=>{
+    if(!setBackgroundEvent){
        setBackgroundEvent = setInterval(()=>{
        document.body.style.backgroundColor = randomColour();
     }, 1000);
+}
 })
 
 document.getElementById('stop').addEventListener('click', ()=>{
     clearInterval(setBackgroundEvent);
+    setBackgroundEvent =  null;
 })
