@@ -1,6 +1,7 @@
 const insert = document.getElementById('insert');
 
 window.addEventListener('keydown',(e)=>{
+    console.log(e);
     insert.innerHTML = `<div class="color">
     <table>
     <tr>
