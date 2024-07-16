@@ -55,3 +55,49 @@ promiseFour.then((userInfo)=>{
 }).catch(function(error){
     console.log(error);
 }).finally(()=>{console.log('The promise is either resolved or rejected')});
+
+const promiseFive = new Promise(function(resolve, reject){
+    setTimeout(()=>{
+        let error = true;
+        if(!error){
+            resolve({"username":"Mack", "Age":"25"});
+        }
+        else{
+            reject('ERROR: Mack went wrong');
+        }
+    }, 10000)
+})
+
+async function consumePromiseFive(){
+    try{
+    const response = await promiseFive;
+    console.log(response);
+    }
+    catch(error){
+        console.log(error);
+    }
+}
+consumePromiseFive();
+
+async function getMyInfo(){
+    try {
+        const response = await fetch('https://api.github.com/users/divyanshurao');
+        const data = await response.json();
+        console.log(data);
+    } catch (error) {
+        console.log("E:", error);
+    }
+}
+
+// getMyInfo();
+
+
+// fetch usinf then and catch
+fetch('https://api.github.com/users/divyanshurao')
+.then((response)=>{
+    return response.json();
+}).then((data)=>{
+    console.log(data);
+}).catch((error)=>{
+    console.log(error);
+})
