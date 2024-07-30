@@ -92,7 +92,7 @@ async function getMyInfo(){
 // getMyInfo();
 
 
-// fetch usinf then and catch
+// fetch using then and catch
 fetch('https://api.github.com/users/divyanshurao')
 .then((response)=>{
     return response.json();
